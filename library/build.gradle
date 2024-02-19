@@ -1,0 +1,28 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+}
+
+android {
+    namespace 'com.uudove.paddle.core'
+
+    defaultConfig {
+        minSdk libs.versions.android.minSdk.get().toInteger()
+        compileSdk libs.versions.android.compileSdk.get().toInteger()
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation libs.androidx.annotation
+}
